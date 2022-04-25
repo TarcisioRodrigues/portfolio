@@ -9,29 +9,41 @@ import { ThemeContext } from "../../context";
 
 const Contact = () => {
   const formRef = useRef();
+  const[name,setName]=useState('')
+  const[subject,setSubject]=useState('')
+  const[email,setEmail]=useState('')
+  const[message,setMessage]=useState('')
   const [done, setDone] = useState(false)
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_rrvnzco",
-        "template_3v5nih4",
-        formRef.current,
-        "user_DrriDPTGKO2Zj4RDXCA6W"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setDone(true)
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
+  // async function handleNewTask(e) {
+  //   e.preventDefault();
+  //   const data ={
+  //     name,
+  //     subject,
+  //     email,
+  //     message
+  // }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   emailjs
+  //     .sendForm(
+  //       "service_rrvnzco",
+  //       "template_3v5nih4",
+  //       formRef.current,
+  //       "user_DrriDPTGKO2Zj4RDXCA6W"
+  //     )
+  //     .then(
+  //       (result) => {
+  //         console.log(result.text);
+  //         setDone(true)
+  //       },
+  //       (error) => {
+  //         console.log(error.text);
+  //       }
+  //     );
+  // };
 
   return (
     <div className="c">
@@ -63,14 +75,14 @@ const Contact = () => {
             <b>Qual a sua história? </b> 
 Entrar em contato. Sempre disponível para freelancer se o projeto certo aparecer. mim.
           </p>
-          <form ref={formRef} onSubmit={handleSubmit}>
+          {/* <form ref={formRef} onSubmit={handleSubmit}>
             <input style={{backgroundColor: darkMode && "#333"}} type="text" placeholder="Name" name="user_name" />
             <input style={{backgroundColor: darkMode && "#333"}} type="text" placeholder="Subject" name="user_subject" />
             <input style={{backgroundColor: darkMode && "#333"}} type="text" placeholder="Email" name="user_email" />
             <textarea style={{backgroundColor: darkMode && "#333"}} rows="5" placeholder="Message" name="message" />
             <button>Submit</button>
             {done && "Obrigado..."}
-          </form>
+          </form> */}
         </div>
       </div>
     </div>
